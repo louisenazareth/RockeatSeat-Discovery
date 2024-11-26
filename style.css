@@ -30,6 +30,7 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -80,13 +81,20 @@ body * {
   z-index: 1;
   transform: translateY(-50%); /*centraliza o elemento ao meio do span*/
   top: 50%;
-
   left: 0;
+
+  animation: slideOut 0.4s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  /*Ao animar o toggle, retira-se as propriedades estáticas, e define a variável de animação para a mudança de estado do botão. */
+  /*right: 0;*/
+  /*left: initial;*/
+  animation: slideIn 0.4s forwards; /*o atributo Forwards mantem o botão parado no left 50%*/
 }
 
 #switch span {
@@ -169,4 +177,36 @@ footer {
   text-align: center;
   font-size: 14px;
   font-weight: 400;
+}
+
+/*media queries - regras de mídia, de acordo com o tipo de dispositivo*/
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+}
+
+/*keyframes - para transição do dark para light*/
+@keyframes slideIn {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+/*keyframes - para transição do light para dark*/
+@keyframes slideOut {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
