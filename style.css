@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*usa a largura das caixas com padrão*/
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+:root {
+  /*variáveis do dark mode - o Root é, por default, o dark mode*/
+  --text-color: white;
+  --bg-url: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/assets/moon-stars.svg);
+}
+
+.light {
+  /*variáveis do light mode, que são acionadas com o uso da classe*/
+  --text-color: black;
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/assets/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  color: var(--text-color);
+}
+
+#container {
+  /*border: 1px white solid;*/
+  width: 360px;
+  margin: 56px auto 0px; /*TOP, RIGHT, BOTTON, LEFT*/
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  display: block;
+  margin: auto;
+}
+
+#profile p {
+  /*color: #fff;*/
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative; /*relativisa os itens filhos*/
+  width: 64px; /*mesmo tamanho do track - span*/
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%); /*centraliza o elemento ao meio do span*/
+  top: 50%;
+
+  left: 0;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  /*alinhamento*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /*espaçamento dentro do elemento*/
+  padding: 16px 24px;
+
+  /*estilização*/
+  /*background: rgba(255, 255, 255, 0.1);*/
+  background: var(--surface-color);
+  /*border: 1px solid rgba(255, 255, 255, 0.5);*/
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.25s; /*transição mais suave dos efeitos*/
+}
+
+ul li a:hover {
+  /*background: rgba(255, 255, 255, 0.05);*/
+  background: var(--surface-color-hover);
+  /*border: 1.5px solid rgba(255, 255, 255, 1);*/
+  border: 1.5px solid var(--text-color);
+}
+
+#sociallinks {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#sociallinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 16px;
+
+  transition: background 0.25s;
+}
+
+#sociallinks a:hover {
+  /*background: rgba(255, 255, 255, 0.2);*/
+  background: var(--highlight-color);
+  padding: 16px;
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
