@@ -38,7 +38,8 @@ body * {
 
 #container {
   /*border: 1px white solid;*/
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /*TOP, RIGHT, BOTTON, LEFT*/
   padding: 0 24px;
 }
